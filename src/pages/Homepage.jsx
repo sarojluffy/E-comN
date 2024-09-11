@@ -1,6 +1,7 @@
 import Content from "../components/content";
 import Infosection from "../components/infosection";
 import Navbarr from "../components/navbar";
+import Genn from "../components/genn";
 
 const HomeP = () => {
   return (
@@ -8,6 +9,7 @@ const HomeP = () => {
       <Navbarr />
       <Content />
       <Infosection />
+      <Genn />
     </>
   );
 };
