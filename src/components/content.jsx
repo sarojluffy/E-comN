@@ -1,4 +1,4 @@
-import Categories from "./subcomponents/categories";
+import { Categories } from "./subcomponents/categories";
 
 const Content = () => {
   return (
