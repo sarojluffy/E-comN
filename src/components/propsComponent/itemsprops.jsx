@@ -1,5 +1,9 @@
 const Itemsprops = (prop) => {
-  return <></>;
+  return (
+    <>
+      <div>{prop.propsent.id}</div>
+    </>
+  );
 };
 
 export default Itemsprops;
