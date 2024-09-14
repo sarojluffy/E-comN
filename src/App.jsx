@@ -1,4 +1,3 @@
-import Content from "./components/content";
 import RoutesS from "./routes/routes";
 
 function App() {
