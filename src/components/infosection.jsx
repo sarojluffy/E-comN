@@ -2,7 +2,7 @@ import InfoS from "./subcomponents/infoS";
 const Infosection = () => {
   return (
     <>
-      <div className="grid grid-cols-5 gap-4 container mx-auto mb-11">
+      <div className="grid grid-cols-5 gap-4 container mx-auto mb-11 max-w-7xl">
         {InfoS.map((abc, i) => (
           <div
             key={i}

@@ -17,11 +17,7 @@ const Items = () => {
 
   return (
     <>
-      {selector.map((abc) => (
-        <>
-          <Itemsprops propsent={abc} />
-        </>
-      ))}
+      <Itemsprops propsent={selector} />
     </>
   );
 };

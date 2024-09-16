@@ -15,7 +15,7 @@
 const Genn = () => {
   return (
     <>
-      <div className="container w-[80%] mx-auto grid grid-cols-3 gap-7">
+      <div className="container w-[80%] mx-auto grid grid-cols-3 gap-7 w-max-7xl">
         <div className="w-96 h-60  relative rounded-lg transition hover:scale-105 duration-200 hover:ease-in-out ">
           <img
             src="../../public/images/men.jpg"
@@ -50,7 +50,6 @@ const Genn = () => {
           </div>
         </div>
       </div>
-      sdadasdsad
     </>
   );
 };
