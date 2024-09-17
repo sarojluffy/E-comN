@@ -9,10 +9,10 @@ const Itemsprops = (prop) => {
         {a.map((abc) => {
           return (
             <>
-              <div className="border border-slate-400 relative rounded-lg ">
+              <div className="border border-slate-400 relative rounded-lg hover:transition-all hover:ease-in-out hover:scale-105 hover:duration-300 ">
                 <img src={abc.image} className="rounded-t-lg h-48 w-full"></img>
 
-                <h2 className="font-bold px-4 hover:hidden">{abc.name}</h2>
+                <h2 className="font-bold px-4 ">{abc.name}</h2>
                 <p className="px-4 text-slate-400">{abc.price}</p>
                 <div className="flex p-4">
                   <FaStar className="text-yellow-500 cursor-pointer" />
@@ -20,9 +20,12 @@ const Itemsprops = (prop) => {
                   <FaStar className="text-yellow-500" />
                   <FaStar className="text-yellow-500" />
                 </div>
-                <div className=" bg-red-500 text-white h-7 w-7 rounded-full flex justify-center items-center absolute right-2 bottom-4   cursor-pointer hover:hidden">
-                  {/* <div className=" hover:hidden ">+</div>
-                  <div className="hidden hover:block">Add to cart</div> */}
+
+                <div className=" bg-red-500 text-white h-7 w-7  bottom-4 right-2 absolute rounded-full flex justify-center items-center   cursor-pointer group hover:w-28 hover:transition-all hover:ease-in-out duration-100 ">
+                  <span className="group-hover:hidden">+</span>
+                  <span className=" hidden group-hover:block   ">
+                    Add to cart
+                  </span>
                 </div>
               </div>
               {/* <div className=" border border-slate-400">

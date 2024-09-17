@@ -3,6 +3,7 @@ import Infosection from "../components/infosection";
 import Navbarr from "../components/navbar";
 import Genn from "../components/genn";
 import Items from "../components/items";
+import Footer from "../components/footer";
 
 const HomeP = () => {
   return (
@@ -12,6 +13,7 @@ const HomeP = () => {
       <Infosection />
       <Genn />
       <Items />
+      <Footer />
     </>
   );
 };

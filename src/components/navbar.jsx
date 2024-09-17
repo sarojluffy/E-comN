@@ -29,14 +29,12 @@ const Navbarr = () => {
           </div>
         </div>
         <div className="mt-10 flex justify-center items-center space-x-7 font-semibold ">
-          <Link>
-            {" "}
+          <Link to="/">
             <div className="hover:scale-150 hover:ease-in-out transition hover:underline cursor-pointer">
               Home
             </div>
           </Link>
-          <Link>
-            {" "}
+          <Link to="/shop">
             <div className="hover:scale-150 hover:ease-in-out transition hover:underline cursor-pointer">
               Shop
             </div>
