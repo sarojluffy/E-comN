@@ -2,8 +2,13 @@ import { IoIosSearch } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { Link } from "react-router-dom";
+import { useSelector } from "react-redux";
 
 const Navbarr = () => {
+  const select = useSelector((state) => {
+    return state.cart.totalquantity;
+  });
+
   return (
     <>
       <nav className="pt-6 border-b-2 pb-8 shadow-md">
@@ -19,9 +24,20 @@ const Navbarr = () => {
               <IoIosSearch style={{ color: "red" }} className="size-6" />
             </form>
           </div>
-          <div className="right flex items-center justify-center space-x-3">
-            <div className="cursor-pointer">
+          <div className="right flex items-center justify-center space-x-3 ">
+            <div className="cursor-pointer relative ">
               <FaShoppingCart />
+
+              {select > 0 ? (
+                <>
+                  {" "}
+                  <div className="absolute  -top-3 -right-3 bg-red-500 rounded-full h-4 w-4 flex items-center justify-center text-white text-xs">
+                    {select}
+                  </div>
+                </>
+              ) : (
+                <></>
+              )}
             </div>
             <div className="cursor-pointer">
               <CiUser />
