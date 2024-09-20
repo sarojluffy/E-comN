@@ -25,20 +25,23 @@ const Navbarr = () => {
             </form>
           </div>
           <div className="right flex items-center justify-center space-x-3 ">
-            <div className="cursor-pointer relative ">
-              <FaShoppingCart />
+            <Link to="/cart">
+              <div className="cursor-pointer relative ">
+                <FaShoppingCart />
 
-              {select > 0 ? (
-                <>
-                  {" "}
-                  <div className="absolute  -top-3 -right-3 bg-red-500 rounded-full h-4 w-4 flex items-center justify-center text-white text-xs">
-                    {select}
-                  </div>
-                </>
-              ) : (
-                <></>
-              )}
-            </div>
+                {select > 0 ? (
+                  <>
+                    {" "}
+                    <div className="absolute  -top-3 -right-3 bg-red-500 rounded-full h-4 w-4 flex items-center justify-center text-white text-xs">
+                      {select}
+                    </div>
+                  </>
+                ) : (
+                  <></>
+                )}
+              </div>
+            </Link>
+
             <div className="cursor-pointer">
               <CiUser />
             </div>

@@ -5,10 +5,7 @@ import { Link } from "react-router-dom";
 const Footer = () => {
   return (
     <div className="w-full " style={{ background: "#1C2530" }}>
-      <div
-        className="grid grid-cols-3   px-4 py-5 text-white container mx-auto"
-        git
-      >
+      <div className="grid grid-cols-3   px-4 py-5 text-white container mx-auto">
         <div>
           <div className="flex flex-col container mx-auto text-wrap">
             <h1 className="font-bold ">e-Shop</h1>

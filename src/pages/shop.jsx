@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import { setproducts } from "../redux/slices/slice1";
 import Itemsprops from "../components/propsComponent/itemsprops";
 import Footer from "../components/footer";
+import Navbarr from "../components/navbar";
 
 const Shop = () => {
   const dispatch = useDispatch();
@@ -18,6 +19,7 @@ const Shop = () => {
 
   return (
     <>
+      <Navbarr />
       <h1 className="text-5xl">
         {" "}
         <center className="font-bold mt-8">SHOP</center>
