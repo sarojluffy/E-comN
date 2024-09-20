@@ -13,7 +13,9 @@ const Navbarr = () => {
     <>
       <nav className="pt-6 border-b-2 pb-8 shadow-md">
         <div className="flex justify-center items-center mt-">
-          <div className="left text-2xl font-bold cursor-pointer">eSHOP</div>
+          <Link to="/">
+            <div className="left text-2xl font-bold cursor-pointer">eSHOP</div>
+          </Link>
           <div className="middle mx-8  border-2 py-2 rounded-md">
             <form className="flex ">
               <input

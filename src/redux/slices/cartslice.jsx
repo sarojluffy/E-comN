@@ -59,8 +59,12 @@ const cartS = createSlice({
         }
       }
     },
+
+    deletecart(state, action) {
+      alert("called");
+    },
   },
 });
-export const { addtocart, addcount, subcount } = cartS.actions;
+export const { addtocart, addcount, subcount, deletecart } = cartS.actions;
 
 export default cartS.reducer;

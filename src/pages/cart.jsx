@@ -3,7 +3,7 @@ import Navbarr from "../components/navbar";
 import { useSelector } from "react-redux";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
-import { addcount, subcount } from "../redux/slices/cartslice";
+import { addcount, deletecart, subcount } from "../redux/slices/cartslice";
 import { Link } from "react-router-dom";
 
 const CartN = () => {
@@ -44,7 +44,7 @@ const CartN = () => {
                           className="h-12 w-12 rounded-lg"
                         ></img>
                         <p> {abc.name}</p>
-                        <p>$ {abc.price}</p>
+                        <p>$ {abc.price.toFixed(2)}</p>
                         <div className="flex   justify-center items-center">
                           <button
                             className="border border-slate-300 px-3 bg-slate-200 cursor-pointer"
@@ -65,8 +65,11 @@ const CartN = () => {
                             +
                           </button>
                         </div>
-                        <div className="pl-7">${abc.totalprice}</div>
-                        <RiDeleteBin6Fill className="text-red-600" />
+                        <div className="pl-7">${abc.totalprice.toFixed(2)}</div>
+                        <RiDeleteBin6Fill
+                          className="text-red-600"
+                          onClick={() => dispatch(deletecart())}
+                        />
                       </div>
                     </>
                   );
@@ -75,7 +78,7 @@ const CartN = () => {
 
               <div>
                 {" "}
-                <div>{select2}</div>
+                <div>{select2.toFixed(2)}</div>
               </div>
             </div>
             <div className="right"></div>
