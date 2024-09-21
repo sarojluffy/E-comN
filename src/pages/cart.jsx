@@ -81,7 +81,7 @@ const CartN = () => {
                 <div>{select2.toFixed(2)}</div>
               </div>
             </div>
-            <div className="right"></div>
+            <div className="right col-span-4"></div>
           </div>
         </>
       ) : (

@@ -16,7 +16,7 @@ const cartS = createSlice({
 
       if (check) {
         //
-        check.price += product.price; //  product will give static data only
+        check.totalprice += product.price; //  product will give static data only
         check.quantity += 1;
       } else {
         state.products.push({
@@ -44,6 +44,7 @@ const cartS = createSlice({
         state.totalprice += addrecv.price;
         console.log(state.totalprice);
         checka.quantity++;
+        state.totalquantity++;
       }
     },
     subcount(state, action) {
@@ -56,12 +57,22 @@ const cartS = createSlice({
           state.totalprice -= subrecv.price;
           console.log(state.totalprice);
           checka.quantity--;
+          state.totalquantity--;
         }
       }
     },
 
     deletecart(state, action) {
-      alert("called");
+      const xyz = action.payload;
+      const checka = state.products.find((abc) => abc.id === xyz.id);
+
+      if (checka) {
+        state.products = state.products.filter((abc) => abc.id != xyz.id);
+        // checka.totalprice -= checka.quantity * checka.price;
+        // state.totalprice -= checka.quantity * checka.price;
+        state.totalprice -= checka.totalprice;
+        state.totalquantity -= checka.quantity;
+      }
     },
   },
 });
