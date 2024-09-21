@@ -13,6 +13,9 @@ const CartN = () => {
   const select2 = useSelector((state) => {
     return state.cart.totalprice;
   });
+  const select3 = useSelector((state) => {
+    return state.cart.totalquantity;
+  });
 
   const dispatch = useDispatch();
 
@@ -81,7 +84,31 @@ const CartN = () => {
                 <div>{select2.toFixed(2)}</div>
               </div>
             </div>
-            <div className="right col-span-4"></div>
+            <div className="right col-span-3 container p-5 border border-1 shadow-md m-10">
+              <div>
+                <h3 className="font-semibold ">CART TOTALS</h3>
+
+                <div className="flex justify-between my-3 text-xs">
+                  <span className="">TOTAL ITEMS</span>
+                  <span>{select3}</span>
+                </div>
+              </div>
+
+              <hr />
+              <div className="py-2">
+                <p>Shipping:</p>
+                <p>shipping to:</p>
+                <button className="text-blue-500"> Change address</button>
+              </div>
+              <hr />
+              <div className="flex justify-between py-4">
+                <div>Total price</div>
+                <div>${select2.toFixed(2)}</div>
+              </div>
+              <button className="bg-red-600 text-white container mx-auto py-1">
+                Proceed to Checkout{" "}
+              </button>
+            </div>
           </div>
         </>
       ) : (
