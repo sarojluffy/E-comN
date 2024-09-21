@@ -68,7 +68,7 @@ const CartN = () => {
                         <div className="pl-7">${abc.totalprice.toFixed(2)}</div>
                         <RiDeleteBin6Fill
                           className="text-red-600"
-                          onClick={() => dispatch(deletecart())}
+                          onClick={() => dispatch(deletecart(abc))}
                         />
                       </div>
                     </>
