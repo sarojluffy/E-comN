@@ -60,7 +60,7 @@ const cartS = createSlice({
           state.totalquantity--;
         }
       }
-    },,
+    },
 
     deletecart(state, action) {
       const xyz = action.payload;
