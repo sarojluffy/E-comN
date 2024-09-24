@@ -2,6 +2,7 @@ import Navbarr from "./navbar";
 import Footer from "./footer";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 const Checkout = () => {
   const [billing, setbilling] = useState(false);
@@ -9,13 +10,22 @@ const Checkout = () => {
 
   const [paymenttoogle, setpaymenttoogle] = useState(false);
   const [payment, setpayment] = useState("");
+
+  const selector = useSelector((state) => {
+    return state.cart.products;
+  });
+
+  const selector2 = useSelector((state) => {
+    return state.cart.totalprice;
+  });
+  console.log(selector2);
   return (
     <>
       <div>
         <Navbarr />
 
         <div className="grid grid-cols-12 my-8">
-          <div className="left col-start-2 col-end-9">
+          <div className="left col-start-2 col-end-8">
             <h1 className="mb-5 text-2xl font-bold">CHECKOUT </h1>
             <div className="border border-gray-200  py-3 px-2 my-2">
               <div
@@ -235,12 +245,43 @@ const Checkout = () => {
               )}
             </div>
           </div>
+          <div className="right col-start-9 col-end-12 shadow-md border-2 p-4">
+            <h1 className="font-semibold text-xl ">Order summary</h1>
+            {selector.map((abc) => {
+              return (
+                <>
+                  <div className="w-full flex justify-between my-3">
+                    <div className=" flex w-full">
+                      <img src={abc.image} className="w-1/3 rounded-lg"></img>
+                      <div className="flex flex-col ml-2">
+                        <span className="font-semibold ">{abc.name}</span>
+                        <span className="text-slate-500">
+                          ${abc.price} x {abc.quantity}
+                        </span>
+                      </div>
+                    </div>
+                    <div>${abc.totalprice.toFixed(2)}</div>
+                  </div>
+                </>
+              );
+            })}
+            <hr />
+            <div>
+              <div className="flex justify-between my-5">
+                <div>total Price :</div>
+                <div className="font-bold ">${selector2}</div>
+              </div>
+              <div>
+                {" "}
+                <button className="bg-red-600 text-white text-sm w-full py-3 rounded-sm">
+                  Place Order
+                </button>
+              </div>
+            </div>
+          </div>
         </div>
+        <Footer />
       </div>
-
-      {/* <div className="fixed w-full bottom-0"> */}
-      <Footer />
-      {/* </div> */}
     </>
   );
 };
