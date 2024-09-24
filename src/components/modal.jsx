@@ -14,7 +14,7 @@ const Modal = ({ props, props2, props3 }) => {
     <>
       <div
         id="a"
-        className="inset-0 fixed backdrop-blur-sm flex justify-center items-center"
+        className="inset-0 fixed  bg-opacity-75 bg-gray-800  flex justify-center items-center"
         onClick={handleonclose}
       >
         <div className="w-[30%]">

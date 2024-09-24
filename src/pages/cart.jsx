@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { addcount, deletecart, subcount } from "../redux/slices/cartslice";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Modal from "../components/modal";
 import { useState } from "react";
 
@@ -36,6 +36,8 @@ const CartN = () => {
   const childvalue = (value) => {
     setvalue3(value);
   };
+
+  const navigate = useNavigate();
 
   //   const dsiplaytotal = select.products.find((abc) => abc.id === item.id);
   return (
@@ -127,8 +129,13 @@ const CartN = () => {
                 <div>Total price</div>
                 <div>${select2.toFixed(2)}</div>
               </div>
-              <button className="bg-red-600 text-white container mx-auto py-1">
-                Proceed to Checkout{" "}
+              <button
+                className="bg-red-600 text-white container mx-auto py-1 "
+                onClick={() => {
+                  navigate("/checkout");
+                }}
+              >
+                Proceed to Checkout
               </button>
             </div>
           </div>
