@@ -5,8 +5,15 @@ import { RiDeleteBin6Fill } from "react-icons/ri";
 import { useDispatch } from "react-redux";
 import { addcount, deletecart, subcount } from "../redux/slices/cartslice";
 import { Link } from "react-router-dom";
+import Modal from "../components/modal";
+import { useState } from "react";
 
 const CartN = () => {
+  const [displaymodal, setdisplaymodal] = useState(false);
+  //   const ayz = "saroj";
+  const Xclose = () => {
+    setdisplaymodal(false);
+  };
   const select = useSelector((state) => {
     return state.cart.products;
   });
@@ -25,12 +32,15 @@ const CartN = () => {
   const countsub = (sub) => {
     dispatch(subcount(sub));
   };
+  const [value3, setvalue3] = useState("");
+  const childvalue = (value) => {
+    setvalue3(value);
+  };
 
   //   const dsiplaytotal = select.products.find((abc) => abc.id === item.id);
   return (
     <>
       <Navbarr />
-
       {select.length > 0 ? (
         <>
           {" "}
@@ -97,8 +107,18 @@ const CartN = () => {
               <hr />
               <div className="py-2">
                 <p>Shipping:</p>
-                <p>shipping to:</p>
-                <button className="text-blue-500"> Change address</button>
+                <p>
+                  shipping to:
+                  <span>{value3}</span>
+                </p>
+                <button
+                  className="text-blue-500"
+                  onClick={() => {
+                    setdisplaymodal(true);
+                  }}
+                >
+                  Change address
+                </button>
               </div>
               <hr />
               <div className="flex justify-between py-4">
@@ -130,8 +150,8 @@ const CartN = () => {
           </div>
         </>
       )}
-
       <Footer />
+      <Modal props={displaymodal} props2={Xclose} props3={childvalue} />
     </>
   );
 };

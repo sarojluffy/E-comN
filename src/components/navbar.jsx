@@ -11,7 +11,7 @@ const Navbarr = () => {
 
   return (
     <>
-      <nav className="pt-6 border-b-2 pb-8 shadow-md">
+      <nav className="pt-6 border-b-2 pb-8 shadow-md ">
         <div className="flex justify-center items-center mt-">
           <Link to="/">
             <div className="left text-2xl font-bold cursor-pointer">eSHOP</div>
