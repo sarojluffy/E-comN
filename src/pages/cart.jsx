@@ -107,10 +107,12 @@ const CartN = () => {
               <hr />
               <div className="py-2">
                 <p>Shipping:</p>
-                <p>
-                  shipping to:
+
+                <div className="flex justify-between">
+                  <p>shipping to:</p>
                   <span>{value3}</span>
-                </p>
+                </div>
+
                 <button
                   className="text-blue-500"
                   onClick={() => {
