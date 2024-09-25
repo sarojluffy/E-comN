@@ -3,8 +3,9 @@ import Footer from "./footer";
 import { FaChevronDown, FaChevronUp } from "react-icons/fa";
 import { useState } from "react";
 import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 
-const Checkout = () => {
+const Checkout = ({ setfororder }) => {
   const [billing, setbilling] = useState(false);
   const [shipping, setshipping] = useState(false);
 
@@ -19,6 +20,20 @@ const Checkout = () => {
     return state.cart.totalprice;
   });
   console.log(selector2);
+
+  const [ObjectSentOrder, setObjectSentOrder] = useState({
+    address: "",
+    city: "",
+    zip: "",
+  });
+
+  const navigate = useNavigate();
+
+  const addtoorder = () => {
+    navigate("/order");
+    setfororder(ObjectSentOrder);
+  };
+  console.log(ObjectSentOrder);
   return (
     <>
       <div>
@@ -109,6 +124,12 @@ const Checkout = () => {
                         type="text"
                         className="w-full border   p-2 "
                         placeholder="Enter Address"
+                        onChange={(e) => {
+                          setObjectSentOrder({
+                            ...ObjectSentOrder,
+                            address: e.target.value,
+                          });
+                        }}
                       ></input>
                     </div>
                     <div>
@@ -117,6 +138,12 @@ const Checkout = () => {
                         type="email"
                         className="container mx-auto outline-none border border-gray-300 rounded-sm p-2 "
                         placeholder="Enter City"
+                        onChange={(e) => {
+                          setObjectSentOrder({
+                            ...ObjectSentOrder,
+                            city: e.target.value,
+                          });
+                        }}
                       ></input>
                     </div>
                     <div>
@@ -125,6 +152,12 @@ const Checkout = () => {
                         type="text"
                         className="container mx-auto outline-none border border-gray-300 rounded-sm p-2 "
                         placeholder="Enter Zip code"
+                        onChange={(e) => {
+                          setObjectSentOrder({
+                            ...ObjectSentOrder,
+                            zip: e.target.value,
+                          });
+                        }}
                       ></input>
                     </div>
                   </div>
@@ -245,7 +278,7 @@ const Checkout = () => {
               )}
             </div>
           </div>
-          <div className="right col-start-9 col-end-12 shadow-md border-2 p-4">
+          <div className="right col-start-9 col-end-12 shadow-md border-2 p-4 h-auto">
             <h1 className="font-semibold text-xl ">Order summary</h1>
             {selector.map((abc) => {
               return (
@@ -269,11 +302,14 @@ const Checkout = () => {
             <div>
               <div className="flex justify-between my-5">
                 <div>total Price :</div>
-                <div className="font-bold ">${selector2}</div>
+                <div className="font-bold ">${selector2.toFixed(2)}</div>
               </div>
               <div>
                 {" "}
-                <button className="bg-red-600 text-white text-sm w-full py-3 rounded-sm">
+                <button
+                  className="bg-red-600 text-white text-sm w-full py-3 rounded-sm"
+                  onClick={addtoorder}
+                >
                   Place Order
                 </button>
               </div>

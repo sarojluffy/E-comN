@@ -1,6 +1,7 @@
 import { useState } from "react";
 
 const SaveCancel = ({ props, props3 }) => {
+  //passing this way causes the props to destruicture
   console.log(props3);
 
   const [xyz, setxyz] = useState();
