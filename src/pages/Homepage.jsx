@@ -15,7 +15,6 @@ const HomeP = () => {
       <Genn />
       <Items />
       <Footer />
-      <Login />
     </>
   );
 };

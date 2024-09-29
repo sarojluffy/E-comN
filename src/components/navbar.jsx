@@ -3,6 +3,8 @@ import { FaShoppingCart } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
+import { useState } from "react";
+import Login from "./Login";
 
 const Navbarr = () => {
   const select = useSelector((state) => {
@@ -10,6 +12,8 @@ const Navbarr = () => {
   });
 
   const navigate = useNavigate();
+
+  const [Loginn, setloginn] = useState(false);
   return (
     <>
       <nav className="pt-6 border-b-2 pb-8 shadow-md ">
@@ -48,7 +52,7 @@ const Navbarr = () => {
             <div className="cursor-pointer">
               <CiUser
                 onClick={() => {
-                  navigate("/login");
+                  setloginn(true);
                 }}
               />
             </div>
@@ -77,6 +81,14 @@ const Navbarr = () => {
           </Link>
         </div>
       </nav>
+
+      {Loginn ? (
+        <>
+          <Login prop={setloginn} />
+        </>
+      ) : (
+        <></>
+      )}
     </>
   );
 };
