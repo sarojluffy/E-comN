@@ -1,7 +1,7 @@
 import { IoIosSearch } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
 const Navbarr = () => {
@@ -9,6 +9,7 @@ const Navbarr = () => {
     return state.cart.totalquantity;
   });
 
+  const navigate = useNavigate();
   return (
     <>
       <nav className="pt-6 border-b-2 pb-8 shadow-md ">
@@ -45,7 +46,11 @@ const Navbarr = () => {
             </Link>
 
             <div className="cursor-pointer">
-              <CiUser />
+              <CiUser
+                onClick={() => {
+                  navigate("/login");
+                }}
+              />
             </div>
           </div>
         </div>

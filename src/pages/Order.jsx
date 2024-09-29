@@ -61,7 +61,7 @@ const Order = ({ fororder }) => {
         <div className="space-x-3 mt-4">
           <button
             className="text-white py-2 px-4"
-            style={{ background: "#1A9147" }} .
+            style={{ background: "#1A9147" }}
           >
             track Order
           </button>

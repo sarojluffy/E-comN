@@ -5,6 +5,7 @@ import CartN from "../pages/cart";
 import Checkout from "../components/Checkout";
 import Order from "../pages/Order";
 import { useState } from "react";
+import Login from "../components/Login";
 
 const RoutesS = () => {
   const [fororder, setfororder] = useState(null);
@@ -21,6 +22,7 @@ const RoutesS = () => {
           element={<Checkout setfororder={setfororder} />}
         />
         <Route path="/order" element={<Order fororder={fororder} />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
     </BrowserRouter>
   );

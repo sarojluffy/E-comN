@@ -4,6 +4,7 @@ import Navbarr from "../components/navbar";
 import Genn from "../components/genn";
 import Items from "../components/items";
 import Footer from "../components/footer";
+import Login from "../components/Login";
 
 const HomeP = () => {
   return (
@@ -14,6 +15,7 @@ const HomeP = () => {
       <Genn />
       <Items />
       <Footer />
+      <Login />
     </>
   );
 };
