@@ -5,6 +5,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { useState } from "react";
 import Login from "./Login";
+import Signup from "./signup";
 
 const Navbarr = () => {
   const select = useSelector((state) => {
@@ -14,6 +15,7 @@ const Navbarr = () => {
   const navigate = useNavigate();
 
   const [Loginn, setloginn] = useState(false);
+  const [signUp, setsignUp] = useState(false);
   return (
     <>
       <nav className="pt-6 border-b-2 pb-8 shadow-md ">
@@ -84,7 +86,15 @@ const Navbarr = () => {
 
       {Loginn ? (
         <>
-          <Login prop={setloginn} />
+          <Login prop={setloginn} prop2={setsignUp} />
+        </>
+      ) : (
+        <></>
+      )}
+
+      {signUp ? (
+        <>
+          <Signup prop={setloginn} prop2={setsignUp} />
         </>
       ) : (
         <></>

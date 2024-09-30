@@ -6,6 +6,7 @@ import Checkout from "../components/Checkout";
 import Order from "../pages/Order";
 import { useState } from "react";
 import Login from "../components/Login";
+import Signup from "../components/signup";
 
 const RoutesS = () => {
   const [fororder, setfororder] = useState(null);
@@ -23,6 +24,7 @@ const RoutesS = () => {
         />
         <Route path="/order" element={<Order fororder={fororder} />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<Signup />} />
       </Routes>
     </BrowserRouter>
   );
