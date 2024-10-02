@@ -2,10 +2,11 @@ import { IoIosSearch } from "react-icons/io";
 import { FaShoppingCart } from "react-icons/fa";
 import { CiUser } from "react-icons/ci";
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
 import Login from "./Login";
 import Signup from "./signup";
+import { setsearchh } from "../redux/slices/slice1";
 
 const Navbarr = () => {
   const select = useSelector((state) => {
@@ -16,6 +17,14 @@ const Navbarr = () => {
 
   const [Loginn, setloginn] = useState(false);
   const [signUp, setsignUp] = useState(false);
+  const [search, setsearch] = useState("");
+
+  const dispatch = useDispatch();
+
+  const send = (val) => {
+    // console.log(val);
+    dispatch(setsearchh(val));
+  };
   return (
     <>
       <nav className="pt-6 border-b-2 pb-8 shadow-md ">
@@ -28,7 +37,8 @@ const Navbarr = () => {
               <input
                 type="text "
                 placeholder="search product "
-                className=" w-[600px] outline-none  hover:placeholder:text-red-500  hover:placeholder:translate-x-5 hover:placeholder:scale-150"
+                className=" w-[600px] outline-none  pl-2 "
+                onChange={(e) => send(e.target.value)}
               ></input>
               <IoIosSearch style={{ color: "red" }} className="size-6" />
             </form>

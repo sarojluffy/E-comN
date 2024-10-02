@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   products: [],
+  searchitems: [],
 };
 const displayProduct = createSlice({
   name: "product",
@@ -9,30 +10,23 @@ const displayProduct = createSlice({
     setproducts(state, action) {
       state.products = action.payload;
     },
+
+    // setsearchh(state, action) {
+    //   const xyz = action.payload;
+    //   state.searchitems = state.products.filter((abc) =>
+    //     abc.name.includes(xyz)
+    //   );
+    //   console.log(state.searchitems);
+    // },
+    setsearchh(state, action) {
+      const xyz = action.payload; // Convert search term to lowercase
+      state.searchitems = state.products.filter(
+        (abc) => abc.name.includes(xyz) // Check if product name contains the search term
+      );
+      // Log the filtered search items
+    },
   },
 });
-export const { setproducts } = displayProduct.actions;
+export const { setproducts, setsearchh } = displayProduct.actions;
 
 export default displayProduct.reducer;
-
-// import { createSlice } from "@reduxjs/toolkit";
-
-// const initialState = {
-//   products: [], // Correct key is 'products', not 'initial'
-// };
-
-// const displayProduct = createSlice({
-//   name: "product",
-//   initialState,
-//   reducers: {
-//     setProducts(state, action) {
-//       // Correct way to update state in Redux Toolkit
-//       state.products = action.payload; // Update the 'products' array in the state
-//     },
-//   },
-// });
-
-// // Export the correct actions from displayProduct.actions
-// export const { setProducts } = displayProduct.actions;
-
-// export default displayProduct.reducer;

@@ -7,6 +7,7 @@ import Order from "../pages/Order";
 import { useState } from "react";
 import Login from "../components/Login";
 import Signup from "../components/signup";
+import Seearch from "../pages/search";
 
 const RoutesS = () => {
   const [fororder, setfororder] = useState(null);
@@ -25,6 +26,7 @@ const RoutesS = () => {
         <Route path="/order" element={<Order fororder={fororder} />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/search" element={<Seearch />} />
       </Routes>
     </BrowserRouter>
   );
