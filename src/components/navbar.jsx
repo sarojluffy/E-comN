@@ -21,9 +21,10 @@ const Navbarr = () => {
 
   const dispatch = useDispatch();
 
-  const send = (val) => {
+  const send = () => {
     // console.log(val);
-    dispatch(setsearchh(val));
+    dispatch(setsearchh(search));
+    navigate("/search");
   };
   return (
     <>
@@ -33,12 +34,12 @@ const Navbarr = () => {
             <div className="left text-2xl font-bold cursor-pointer">eSHOP</div>
           </Link>
           <div className="middle mx-8  border-2 py-2 rounded-md">
-            <form className="flex ">
+            <form className="flex " onSubmit={send}>
               <input
                 type="text "
                 placeholder="search product "
                 className=" w-[600px] outline-none  pl-2 "
-                onChange={(e) => send(e.target.value)}
+                onChange={(e) => setsearch(e.target.value)}
               ></input>
               <IoIosSearch style={{ color: "red" }} className="size-6" />
             </form>

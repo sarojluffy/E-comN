@@ -23,6 +23,7 @@ const displayProduct = createSlice({
       state.searchitems = state.products.filter(
         (abc) => abc.name.includes(xyz) // Check if product name contains the search term
       );
+      console.log(state.searchitems);
       // Log the filtered search items
     },
   },
